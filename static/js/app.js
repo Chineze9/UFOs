@@ -52,7 +52,13 @@ Object.values(dataRow).forEach((val) => {
     durationMinutes: "5 mins.",
     comments: "4 bright green circles high in the sky going in circles then one bright green light at my front door."
   },
-  
-
-
-
+function handleClick() {
+    let date = d3.select("#datetime").property("value");
+    let filteredData = tableData;
+    if (date) {
+        filteredData = filteredData.filter(row => row.datetime === date);
+    };
+    buildTable(filteredData);
+};
+d3.selectAll("#filter-btn").on("click", handleClick);
+buildTable(tableData);
