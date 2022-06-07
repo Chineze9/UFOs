@@ -47,11 +47,11 @@ function updateFilters() {
 
     // 6. Call function to apply all filters and rebuild the table
     filterTable();
-    filterTable(filters);
+    
   };
   
   // 7. Use this function to filter the table when data is entered.
-  function filterTable(obj) {
+  function filterTable() {
 
   //8. set a default filter and save it to a new variable
   let filteredData = tableData;
@@ -59,7 +59,7 @@ function updateFilters() {
    
   // 9. Use a forEach Loop through all of the filters and keep any data that
   // matches the filter values
-  Object.entries(obj).forEach(([fkey, fval]) =>{
+  Object.entries(filters).forEach(([fkey, fval]) =>{
     filteredData = filteredData.filter((row) => row[fkey] === fval)
 
 });
